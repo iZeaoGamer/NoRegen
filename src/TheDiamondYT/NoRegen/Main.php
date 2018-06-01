@@ -6,6 +6,7 @@ use pocketmine\plugin\PluginBase;
 use pocketmine\event\Listener;
 use pocketmine\event\entity\EntityRegainHealthEvent;
 use pocketmine\event\player\PlayerJoinEvent;
+use pocketmine\utils\Config;
 
 class Main extends PluginBase implements Listener {
     
@@ -14,7 +15,7 @@ class Main extends PluginBase implements Listener {
         $this->getServer()->getPluginManager()->registerEvents($this, $this);
     }
     public function onPlayerJoin(PlayerJoinEvent $ev) {
-        $config = $this->getConfig()->get();
+        $config = $this->getConfig()->get("message");
         
         if($this->getConfig()->get("message")) {
             $ev->getPlayer()->sendMessage($this->getConfig()->get("message"));
