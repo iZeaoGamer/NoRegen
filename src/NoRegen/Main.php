@@ -4,7 +4,6 @@ use pocketmine\plugin\PluginBase;
 use pocketmine\event\Listener;
 use pocketmine\event\entity\EntityRegainHealthEvent;
 use pocketmine\event\player\PlayerJoinEvent;
-
 class Main extends PluginBase implements Listener {
     public function onEnable() {
         $this->saveDefaultConfig();
@@ -23,19 +22,19 @@ class Main extends PluginBase implements Listener {
         $block = $this->getConfig()->getAll()["block"];
         $reason = $ev->getRegainReason();
         
-        if($block["regen"] && $reason === EntityRegainHealthEvent::CAUSE_REGEN) {
+        if($block["regen"] === true && $reason === EntityRegainHealthEvent::CAUSE_REGEN) {
             $ev->setCancelled(true);
         }
-        if($block["eating"] && $reason === EntityRegainHealthEvent::CAUSE_EATING) {
+        if($block["eating"] === true && $reason === EntityRegainHealthEvent::CAUSE_EATING) {
             $ev->setCancelled(true);
         }
-        if($block["potion"] && $reason === EntityRegainHealthEvent::CAUSE_MAGIC) {
+        if($block["potion"] === true && $reason === EntityRegainHealthEvent::CAUSE_MAGIC) {
             $ev->setCancelled(true);
         }
-        if($block["custom"] && $reason === EntityRegainHealthEvent::CAUSE_CUSTOM) {
+        if($block["custom"] === true && $reason === EntityRegainHealthEvent::CAUSE_CUSTOM) {
             $ev->setCancelled(true);
         }
-        if($block["saturation"] && $reason === EntityRegainHealthEvent::CAUSE_SATURATION) {
+        if($block["saturation"] === true && $reason === EntityRegainHealthEvent::CAUSE_SATURATION) {
             $ev->setCancelled(true);
         }
     }
