@@ -1,5 +1,5 @@
 <?php
-namespace TheDiamondYT\NoRegen;
+namespace NoRegen;
 use pocketmine\plugin\PluginBase;
 use pocketmine\event\Listener;
 use pocketmine\event\entity\EntityRegainHealthEvent;
