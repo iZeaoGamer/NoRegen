@@ -9,10 +9,19 @@ use pocketmine\event\entity\EntityRegainHealthEvent;
 class Main extends PluginBase implements Listener {
     
     public function onEnable(): void{
+         $this->saveDefaultConfig();
         $this->getServer()->getPluginManager()->registerEvents($this, $this);
     }
+    public function onPlayerJoin(PlayerJoinEvent $ev) {
+        $config = $this->getConfig()->getAll();
+        
+        if($config["message"]["show"]) {
+            $ev->getPlayer()->sendMessage($config["message"]["text"]);
+        }
+    }
+    
     public function onRegainHealth(EntityRegainHealthEvent $ev) {
-        $block = $ev->getBlock();
+        $block = $this->getConfig()->getAll()["block"];
         $reason = $ev->getRegainReason();
         $bypass = $ev->getPlayer()->hasPermission("noregen.bypass");
         
