@@ -5,25 +5,14 @@ namespace TheDiamondYT\NoRegen;
 use pocketmine\plugin\PluginBase;
 use pocketmine\event\Listener;
 use pocketmine\event\entity\EntityRegainHealthEvent;
-use pocketmine\event\player\PlayerJoinEvent;
 
 class Main extends PluginBase implements Listener {
-
-    public function onEnable() {
-        $this->saveDefaultConfig();
+    
+    public function onEnable(): void{
         $this->getServer()->getPluginManager()->registerEvents($this, $this);
     }
-    
-    public function onPlayerJoin(PlayerJoinEvent $ev) {
-        $config = $this->getConfig()->getAll();
-        
-        if($config["message"]["show"]) {
-            $ev->getPlayer()->sendMessage($config["message"]["text"]);
-        }
-    }
-    
     public function onRegainHealth(EntityRegainHealthEvent $ev) {
-        $block = $this->getConfig()->getAll()["block"];
+        $block = $ev->getBlock();
         $reason = $ev->getRegainReason();
         $bypass = $ev->getPlayer()->hasPermission("noregen.bypass");
         
