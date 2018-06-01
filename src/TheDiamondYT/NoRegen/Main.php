@@ -5,7 +5,7 @@ namespace TheDiamondYT\NoRegen;
 use pocketmine\plugin\PluginBase;
 use pocketmine\event\Listener;
 use pocketmine\event\entity\EntityRegainHealthEvent;
-use pockettmine\event\player\PlayerJoinEvent;
+use pocketmine\event\player\PlayerJoinEvent;
 
 class Main extends PluginBase implements Listener {
     
