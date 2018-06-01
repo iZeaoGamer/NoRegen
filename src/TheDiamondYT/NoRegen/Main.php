@@ -22,6 +22,7 @@ class Main extends PluginBase implements Listener {
     }
     
     public function onRegainHealth(EntityRegainHealthEvent $ev) {
+        $player = $ev->getPlayer();
         $block = $this->getConfig()->getAll()["block"];
         $reason = $ev->getRegainReason();
         $bypass = $ev->getPlayer()->hasPermission("noregen.bypass");
