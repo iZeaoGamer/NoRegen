@@ -3,7 +3,7 @@ author: TheDiamondYT
 description: A configurable plugin to disable regeneration.
 version: 1.0.0
 api: [3.0.0-ALPHA10, 3.0.0-ALPHA11, 3.0.0-ALPHA12]
-main: TheDiamondYT\NoRegen\Main
+main: NoRegen\Main
 website: https://github.com/TheDiamondYT1/NoRegen
 permission:
   noregen.bypass:
